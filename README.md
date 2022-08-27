@@ -7,6 +7,7 @@
 - authlog_login_failed_total (количество неуспешных логонов)
 
 Тип метрик - счетчик
+
 Тег метрик - user
 
 Порт по умолчанию: 9946
@@ -21,13 +22,17 @@
 - настройка сервиса systemd, активация и запуск
 
 Скрипт можно запускать повторно, при этом будет выполнен перезапуск сервиса.
-```
-sudo bash ./authlog_exporter_installer.sh
-```
+
+Для установки:
+- создать клон репозитория на систему где будет выполняться установка
+- запустить скрипт автоматической установки
+    ```bash
+    sudo bash ./authlog_exporter_installer.sh
+    ```
 
 # Файл конфигурации
 Расположение файла конфигурации:
-/usr/local/lib/authlog_exporter/authlog_exporter.yml
+/еtc/authlog_exporter.yml
 
 Параметры и значения по умолчанию:
 ```
@@ -51,20 +56,25 @@ debug: true
 # Отладка
 - установить "debug: true" в конфиге
 - включить отслеживание новых сообщений в журнале
-```
-journalctl -f -a -u authlog_exporter.service
-```
+    ```bash
+    journalctl -f -a -u authlog_exporter.service
+    ```
 - перезапустить сервис
-```
-systemctl restart authlog_exporter.service
-```
+    ```bash
+    systemctl restart authlog_exporter.service
+    ```
 # Удаление
 
 Вместе с экспортером поставляется скрипт для автоматического удаления. Он выполняет:
-- остановка сервиса
+- остановку сервиса
 - удаление файлов экспортера, включая конфиг
 
 Установленные зависимости не удаляются.
-```
+
+Для удаления:
+- загрузить скрипт authlog_exporter_uninstaller.sh из репозитория на систему где будет выполняться удаление
+- запустить скрипт автоматического удаления
+
+```bash
 sudo bash ./authlog_exporter_uninstaller.sh
 ```
