@@ -1,0 +1,6 @@
+---
+follow_log_sleep_sec: 5
+rsyslog_config: /etc/rsyslog.conf
+port: 9946
+authlog_file: /var/log/auth.log
+debug: true
