@@ -7,10 +7,5 @@ Restart=on-failure
 WorkingDirectory=/usr/local/lib/authlog_exporter/
 ExecStart=/usr/local/lib/authlog_exporter/authlog_exporter.py
 
-#/usr/bin/python3 /home/zu/Documents/prometheus/authlog_exporter/authlog_exporter.py
-#ExecReload=/bin/kill -HUP $MAINPID
-#TimeoutStopSec=20s
-#SendSIGKILL=no
-
 [Install]
 WantedBy=multi-user.target

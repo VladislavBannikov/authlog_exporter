@@ -12,7 +12,12 @@
 
 Порт по умолчанию: 9946
 
+
 Счетчики не сохраняются после рестарта сервиса.
+
+Парсер экспортера настроен на формат лога по шаблону "$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat"
+Это настройка по умолчанию для rsyslog. Если выбран другой шаблон экспортер не запустится.
+
 
 # Установка
 
@@ -51,6 +56,11 @@ authlog_file: /var/log/auth.log
 
 # Включение отладочных сообщений journalctl
 debug: true
+```
+
+После изменения конфига нужна перезагрузка сервиса:
+```bash
+systemctl restart authlog_exporter.service
 ```
 
 # Отладка
